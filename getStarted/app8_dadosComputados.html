@@ -1,0 +1,29 @@
+<html>
+    <head>
+        <title>App8</title>
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"> </script>
+        <meta charset="utf-8">
+    </head>
+
+    <body>
+        <div id='app-8'>
+            <p>Mensagem original: "{{message}}"</p>
+            <p>Mensagem ao contrário: "{{reverse}}"</p>
+            <p>Mensagem ao contrário 2: "{{reverse}}"</p>
+        </div>
+
+        <script>
+            var app8 = new Vue({
+                el:'#app-8',
+                data:{
+                    message: 'olá Filipe'
+                },
+                computed:{// não usar arrowfunction para evitar problemas com this
+                    reverse: function(){
+                        return this.message.split('').reverse().join('')
+                    }
+                }
+            })
+        </script>
+    </body>
+</html>

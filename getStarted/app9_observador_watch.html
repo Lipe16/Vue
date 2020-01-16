@@ -1,0 +1,52 @@
+<html>
+    <head>
+        <title>App9</title>
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"> </script>
+        <meta charset="utf-8">
+    </head>
+
+    <body>
+        <div id='app-9'>
+            <p>{{nomecompleto}}</p>
+            <input v-model="nome" />
+            
+            <ul>
+                <li v-for="item in currentItems">
+                    {{item.text}}
+                </li>
+            </ul>
+        </div>
+
+
+        <script>
+            var app9 = new Vue({
+                el:'#app-9',
+                data:{
+                    nome: '',
+                    segundonome: 'Ferreira',
+                    todos: [
+                        {id: 1, text: 'Item 1', checked: false},
+                        {id: 2, text: 'Comprar pão', checked: true},
+                        {id: 3, text: 'azd', checked: false},
+                        {id: 4, text: 'Item 4', checked: false},
+                    ],
+                    filtereds: []
+                },
+                computed: {
+                    nomecompleto: function() {
+                        console.log('computou')
+                        return `${this.nome} ${this.segundonome}`
+                    },
+                    currentItems() {
+                        return this.nome ? this.filtereds : this.todos
+                    }
+                },
+                watch: {
+                    nome(newValue) {
+                        this.filtereds = this.todos.filter(x => x.text.toLowerCase().indexOf(newValue.toLowerCase()) >= 0)
+                    }
+                }
+            })
+        </script>
+    </body>
+</html>

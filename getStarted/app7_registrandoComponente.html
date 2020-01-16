@@ -1,0 +1,41 @@
+<html>
+    <head>
+        <title>App7</title>
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"> </script>
+        <meta charset="utf-8">
+    </head>
+
+    <body>
+        <div id="app-7" >
+            <ol>
+                <todo-item
+                    v-for="item in list"
+                    v-bind:todo='item'
+                    v-bind:key='item.id'
+                >
+                </todo-item>
+                <button v-bind:disabled="isButtonDisabled">Botão</button>
+            </ol>
+        </div>
+
+        <script>
+            Vue.component('todo-item', {
+                props: ['todo'],
+                template: '<li>{{todo.text}}</li>'
+            })
+
+            var app7 = new Vue({
+                el:'#app-7',
+                data:{
+                    isButtonDisabled:true,
+                    list:[
+                        {id:0, text: 'frutas'},
+                        {id:1, text: 'canetas'},
+                        {id:2, text: 'pratos'}
+                    ]
+                }
+            })
+            //var app7 = new Vue(...)
+        </script>
+    </body>
+</html>

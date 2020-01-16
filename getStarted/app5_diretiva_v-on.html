@@ -1,0 +1,28 @@
+<html>
+    <head>
+        <title>App5</title>
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"> </script>
+        <meta charset="utf-8">
+    </head>
+
+    <body>
+        <div id='app-5'>
+            <p>{{ message }}</p>
+            <button v-on:click="reverse">inverte mensagem</button>
+        </div>
+
+        <script>
+            var app5 = new Vue({
+                el:'#app-5',
+                data:{
+                    message:'Olá 2020!'
+                },
+                methods:{
+                    reverse: function(){
+                        this.message = this.message.split('').reverse().join('')
+                    }
+                }
+            })
+        </script>
+    </body>
+</html>

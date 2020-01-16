@@ -1,0 +1,30 @@
+<html>
+    <head>
+        <title>V-for</title>
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"> </script>
+        <meta charset="utf-8">
+    </head>
+
+    <body>
+        <div id='app-4'>
+            <ol>
+                <li v-for='todo in todos'>
+                    {{todo.text}}
+                </li>
+            </ol>
+        </div>
+
+        <script>
+            var app4 = new Vue({
+                el:'#app-4',
+                data:{
+                    todos:[
+                        {text: 'Aprender JavaScript'},
+                        {text: 'Aprender Vue'},
+                        {text: 'Criar algo incrível :D'}
+                    ]
+                }
+            })
+        </script>
+    </body>
+</html>
