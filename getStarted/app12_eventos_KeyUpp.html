@@ -1,0 +1,31 @@
+<html>
+    <head>
+        <title>App11</title>
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"> </script>
+        <meta charset="utf-8">
+    </head>
+
+    <body>
+        <div id='app-11'>
+
+            <input @keyup.enter="chamaAlerta" />
+
+            
+        </div>
+
+
+        <script>
+            var app11 = new Vue({
+                el:'#app-11',
+                data:{
+                },
+                methods: {
+                    chamaAlerta(){
+                        alert("Olá Filipe")
+                    }
+                }
+
+            })
+        </script>
+    </body>
+</html>

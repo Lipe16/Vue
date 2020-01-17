@@ -1,0 +1,39 @@
+<html>
+    <head>
+        <title>App10</title>
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"> </script>
+        <meta charset="utf-8">
+    </head>
+
+    <body>
+        <div id='app-10'>
+
+            <p @mousemove="pegarPosicao">
+                
+                x = {{ x }} e y = {{ y }}
+
+                <span @mousemove.stop>parar</span>
+            </p>
+
+            
+        </div>
+
+
+        <script>
+            var app10 = new Vue({
+                el:'#app-10',
+                data:{
+                    x:0,
+                    y:0
+                },
+                methods: {
+                    pegarPosicao(e){
+                        this.x = e.clientX
+                        this.y = e.clientY
+                    }
+                }
+
+            })
+        </script>
+    </body>
+</html>
