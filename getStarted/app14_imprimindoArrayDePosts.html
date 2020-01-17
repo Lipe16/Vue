@@ -1,0 +1,37 @@
+<html>
+    <head>
+        <title>App14</title>
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"> </script>
+        <meta charset="utf-8">
+    </head>
+
+    <body>
+        <div id="app-14" >
+            <blog-post 
+                v-for="post in posts"
+                v-bind:titulo="post.titulo"
+                v-bind:key="post.id" 
+            ></blog-post>
+        </div>
+
+        <script>
+            Vue.component(
+                'blog-post',{
+                    props:['titulo'],
+                    template: '<h3>{{titulo}}</h3>'
+                }
+            )
+
+            var app14 = new Vue({
+                el:'#app-14',
+                    data:{
+                        posts:[
+                            {id:0, titulo: 'Vue é top'},
+                            {id:1, titulo: 'Vue é legal!'}
+                        ]
+                    }
+                }
+            )
+        </script>
+    </body>
+</html>

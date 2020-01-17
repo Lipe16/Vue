@@ -1,0 +1,33 @@
+<html>
+    <head>
+        <title>App16</title>
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"> </script>
+        <meta charset="utf-8">
+    </head>
+
+    <body>
+        <div id="app-16">
+            <item-lista v-for='item in itens' v-bind:item='item' >
+            </item-lista>
+
+        </div>
+    </body>
+
+    <script>
+        Vue.component('item-lista',{
+            props:['item'],
+            template: '<div> <h1><button  > {{item.titulo}} </button></h1> <p v-html="item.descricao"></p> </div>'
+        });
+
+        new Vue({
+            el:'#app-16',
+            data:{
+                content:'',
+                mostrarDescricao(titulo){
+                    console.log(titulo)
+                },
+                itens: [ {id:0, titulo: 'Vue é top', descricao:'loren inputsun'}, {id:1, titulo: 'Vue é legal!', descricao:'loren inputsun 2'}]
+            }
+        })
+    </script>
+</html>

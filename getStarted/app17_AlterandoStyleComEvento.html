@@ -1,0 +1,53 @@
+<html>
+    <head>
+        <title>App17</title>
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"> </script>
+        <meta charset="utf-8">
+    </head>
+
+    <body>
+        <div id='app-17'>
+            <blog-post
+                v-for='item in itens'
+                v-bind:item='item'
+                v-bind:style= '{ fontSize: fontPostSize + "em" }'
+                >
+            </blog-post>
+            
+            <button v-on:click="fontPostSize = fontPostSize += 1">
+                aumentarFonte
+            </button>
+
+            <button v-on:click="diminuirFonte">
+                diminuirFonte
+            </button>
+        </div>
+
+    </body>
+
+    <script>
+
+        Vue.component('blog-post', {
+            props: ['item'],
+            template: '<div><h1>{{item.titulo}}</h1><p>{{item.descricao}}</p>  </div>'
+        })
+
+        var app17 = new Vue({
+            el:'#app-17',
+            data:{
+                itens: [ {id:0, titulo: 'Vue é top', descricao:'loren inputsun .... ... ... ...'},
+                         {id:1, titulo: 'Vue é legal!', descricao:'loren inputsun 2 ... ... .. ... ..'}],
+                fontPostSize: 1
+            },
+            methods:{
+                aumentarFonte(){
+                    this.fontPostSize += 1
+                },
+                diminuirFonte(){
+                    this.fontPostSize -= 1
+                }
+            }
+            
+        })
+    </script>
+</html>

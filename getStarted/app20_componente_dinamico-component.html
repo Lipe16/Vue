@@ -1,0 +1,50 @@
+<html>
+    <head>
+        <title>App20</title>
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"> </script>
+        <meta charset="utf-8">
+
+    </head>
+
+    <body>
+        <div id='app-20'>
+            <button 
+                v-for='componente in componentes'
+                v-on:click='componenteCorrente = componente'
+            >{{componente}}</button>
+
+            <component v-bind:is='componenteCorrente'></component>
+        </div>
+
+    </body>
+
+    <script>
+        Vue.component('componente-home',{
+            template:`<div>
+                        <p>home</p>
+                    </div>`
+        })
+
+        Vue.component('componente-contato',{
+            template:`<div>
+                        <p>contato</p>
+                    </div>`
+        })
+
+        Vue.component('componente-servicos',{
+            template:`<div>
+                        <p>servicos</p>
+                    </div>`
+        })
+
+
+        new Vue({
+            el:'#app-20',
+            data:{
+                componenteCorrente:'componente-home',
+                componentes:['componente-home', 'componente-contato','componente-servicos']
+            }
+        })
+    
+    </script>
+</html>

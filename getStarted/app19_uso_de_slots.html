@@ -1,0 +1,36 @@
+<html>
+    <head>
+        <title>App19</title>
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"> </script>
+        <meta charset="utf-8">
+
+        <style>
+            .demo-alert-box {
+                padding: 10px 20px;
+                background: #f3beb8;
+                border: 1px solid #f09898;
+            }
+        </style>
+    </head>
+
+    <body>
+        <div id='app-19'>
+            <alert-box>loren inputsun</alert-box>
+        </div>
+
+    </body>
+
+    <script>
+        Vue.component('alert-box',{
+            template:`<div class='demo-alert-box'>
+                        <strong>Erro!</strong>
+                        <slot></slot>
+                    </div>`
+        })
+
+        new Vue({
+            el:'#app-19'
+        })
+    
+    </script>
+</html>

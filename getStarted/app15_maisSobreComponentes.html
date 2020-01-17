@@ -1,0 +1,29 @@
+<html>
+    <head>
+        <title>App15</title>
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"> </script>
+        <meta charset="utf-8">
+    </head>
+
+    <body>
+        <div id="app-15" >
+            <button-counter></button-counter>
+            <button-counter></button-counter>
+            <button-counter></button-counter>
+        </div>
+
+        <script>
+
+            Vue.component('button-counter',{
+
+                data: function(){
+                        return {count: 0}
+                },
+                template: '<button v-on:click="count++" >cliques: {{count}}</button>'
+            })
+
+            new Vue({el: '#app-15'});
+ 
+        </script>
+    </body>
+</html>

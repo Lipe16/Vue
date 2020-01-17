@@ -1,0 +1,41 @@
+<html>
+    <head>
+        <title>Vários componentes</title>
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"> </script>
+        <meta charset="utf-8">
+    </head>
+
+    <body>
+        <div id='app-22'>
+            <componente-menu></componente-menu>
+
+            <componente-corpo></componente-corpo>
+
+            <componente-footer></componente-footer>
+
+        </div>
+    </body>
+
+    
+    <script>
+        var menu = Vue.component('componente-menu', {
+            template: '<p>este é o menu</p>'
+        })
+
+        var corpo = Vue.component('componente-corpo', {
+            template: '<p>este é o corpo</p>'
+        })
+
+        var footer = Vue.component('componente-footer', {
+            template: '<p>este é o footer</p>'
+        })
+
+
+        new Vue({
+            el:'#app-22',
+            components:{menu, corpo, footer},
+            data:{
+            }
+        })
+    </script>
+</html>
