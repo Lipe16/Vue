@@ -8,13 +8,8 @@
     <body>
         <div id='app-9'>
             <p>{{nomecompleto}}</p>
-            <input v-model="nome" />
             
-            <ul>
-                <li v-for="item in currentItems">
-                    {{item.text}}
-                </li>
-            </ul>
+
         </div>
 
 
@@ -22,28 +17,19 @@
             var app9 = new Vue({
                 el:'#app-9',
                 data:{
-                    nome: '',
+                    nome: 'Filipe',
                     segundonome: 'Ferreira',
-                    todos: [
-                        {id: 1, text: 'Item 1', checked: false},
-                        {id: 2, text: 'Comprar pão', checked: true},
-                        {id: 3, text: 'azd', checked: false},
-                        {id: 4, text: 'Item 4', checked: false},
-                    ],
-                    filtereds: []
+                    nomecompleto:''
                 },
-                computed: {
-                    nomecompleto: function() {
-                        console.log('computou')
-                        return `${this.nome} ${this.segundonome}`
-                    },
-                    currentItems() {
-                        return this.nome ? this.filtereds : this.todos
-                    }
-                },
+
                 watch: {
                     nome(newValue) {
-                        this.filtereds = this.todos.filter(x => x.text.toLowerCase().indexOf(newValue.toLowerCase()) >= 0)
+                        this.nomecompleto =  newValue + ' '+this.segundonome;
+                        console.log(newValue + ' '+this.segundonome)
+                    },
+                    segundonome(newValue ){
+                        this.nomecompleto = this.nome +' ' +newValue;
+                        console.log(this.nome +' ' +newValue)
                     }
                 }
             })
